@@ -14,18 +14,15 @@ namespace Task03_Shopping_Spree
             
             string[] dataLineProducts = Console.ReadLine().Split(new char[] { '=', ';' }, StringSplitOptions.RemoveEmptyEntries).ToArray();
 
-                       
-            Dictionary<string, Person> allPersons = new Dictionary<string, Person>();
-
             try
             {
+                Dictionary<string, Person> allPersons = new Dictionary<string, Person>();
+                
                 for (int i = 0; i <= dataLinePersons.Length-2; i += 2)
                 {
                     Person nextPerson = new Person(dataLinePersons[i], double.Parse(dataLinePersons[i + 1]));
                     allPersons.Add(dataLinePersons[i], nextPerson);
                 }
-
-                int productsNumber = dataLineProducts.Length / 2;
 
                 Dictionary<string, Product> allProducts = new Dictionary<string, Product>();
 
@@ -55,9 +52,6 @@ namespace Task03_Shopping_Spree
             {
                 Console.WriteLine(ex.Message);
             }
-
-
-
 
             //Console.WriteLine("Hello World!");
         }
