@@ -14,13 +14,12 @@ namespace Task03_Shopping_Spree
             
             string[] dataLineProducts = Console.ReadLine().Split(new char[] { '=', ';' }, StringSplitOptions.RemoveEmptyEntries).ToArray();
 
-            int peoplesNumbers = dataLinePersons.Length / 2;
-            
+                       
             Dictionary<string, Person> allPersons = new Dictionary<string, Person>();
 
             try
             {
-                for (int i = 0; i <= peoplesNumbers; i += 2)
+                for (int i = 0; i <= dataLinePersons.Length-2; i += 2)
                 {
                     Person nextPerson = new Person(dataLinePersons[i], double.Parse(dataLinePersons[i + 1]));
                     allPersons.Add(dataLinePersons[i], nextPerson);
@@ -30,13 +29,11 @@ namespace Task03_Shopping_Spree
 
                 Dictionary<string, Product> allProducts = new Dictionary<string, Product>();
 
-                for (int i = 0; i <= peoplesNumbers; i += 2)
+                for (int i = 0; i <= dataLineProducts.Length - 2; i += 2)
                 {
                     Product nextProduct = new Product(dataLineProducts[i], double.Parse(dataLineProducts[i + 1]));
                     allProducts.Add(dataLineProducts[i], nextProduct);
                 }
-
-                int test = 1;
 
                 string nextComand;
                 while ((nextComand = Console.ReadLine()) != "END")
@@ -48,9 +45,6 @@ namespace Task03_Shopping_Spree
 
                     curentPerson.Bought(curentProduct);
                 }
-
-
-
 
                 foreach (var element in allPersons.Values)
                 {
